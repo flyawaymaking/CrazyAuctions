@@ -17,8 +17,9 @@ public class AuctionWinBidEvent extends Event {
     
     private static final HandlerList handlers = new HandlerList();
     private final Player player;
-    private final long bid;
+    private final double bid;
     private final ItemStack item;
+    private final String currency;
     
     /**
      *
@@ -26,10 +27,15 @@ public class AuctionWinBidEvent extends Event {
      * @param item The item that was won.
      * @param bid The bid that was placed on the item.
      */
-    public AuctionWinBidEvent(Player player, ItemStack item, long bid) {
+    public AuctionWinBidEvent(Player player, ItemStack item, double bid, String currency) {
         this.player = player;
         this.item = item;
         this.bid = bid;
+        this.currency = currency;
+    }
+
+    public AuctionWinBidEvent(Player player, ItemStack item, double bid) {
+        this(player, item, bid, "");
     }
     
     public static HandlerList getHandlerList() {
@@ -48,7 +54,11 @@ public class AuctionWinBidEvent extends Event {
         return this.item;
     }
     
-    public long getBid() {
+    public double getBid() {
         return this.bid;
+    }
+
+    public String getCurrency() {
+        return this.currency;
     }
 }

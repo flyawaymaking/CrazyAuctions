@@ -18,9 +18,10 @@ public class AuctionListEvent extends Event {
     
     private static final HandlerList handlers = new HandlerList();
     private final Player player;
-    private final long price;
+    private final double price;
     private final ShopType shop;
     private final ItemStack item;
+    private final String currency;
     
     /**
      *
@@ -29,11 +30,16 @@ public class AuctionListEvent extends Event {
      * @param item The item being listed.
      * @param price The price the item is being listed for.
      */
-    public AuctionListEvent(Player player, ShopType shop, ItemStack item, long price) {
+    public AuctionListEvent(Player player, ShopType shop, ItemStack item, double price, String currency) {
         this.player = player;
         this.shop = shop;
         this.item = item;
         this.price = price;
+        this.currency = currency;
+    }
+
+    public AuctionListEvent(Player player, ShopType shop, ItemStack item, double price) {
+        this(player, shop, item, price, "");
     }
     
     public static HandlerList getHandlerList() {
@@ -56,7 +62,11 @@ public class AuctionListEvent extends Event {
         return this.item;
     }
     
-    public long getPrice() {
+    public double getPrice() {
         return this.price;
+    }
+
+    public String getCurrency() {
+        return this.currency;
     }
 }
