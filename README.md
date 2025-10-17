@@ -11,11 +11,99 @@
 
 ---
 
+## ✨ New Features
+
+This fork extends the original CrazyAuctions by adding support for CoinsEngine currencies, allowing players to use multiple in-game currencies for auctions instead of just Vault economy.
+
+---
+
+## ⚙️ Configuration
+
+### Enabling CoinsEngine Support
+
+To use CoinsEngine currencies instead of Vault, modify your `config.yml`:
+
+```yaml
+Settings:
+  CoinsEngineSupport:
+    enable: true  # Set to true to use CoinsEngine currencies
+    currencies:
+      - 'money'    # First currency (primary)
+      - 'coins'    # Second currency
+      - 'gems'     # Third currency, etc.
+  defaultCurrencySymbol: '$' # Currency symbol displayed next to %price% by default (if CoinsEngine is not enabled or currency is not found)
+  GUISettings:
+    Currency:
+      Title: '&6Choose currency'
+      Lore:
+        - '&9Currency: &e%currency%'
+        - '&9Price: &e%price%'
+```
+
+### Configuration Details
+
+- **CoinsEngineSupport.enable**: Set to `true` to activate CoinsEngine integration
+- **CoinsEngineSupport.currencies**: List of currency IDs from your CoinsEngine config
+    - Players can choose from all listed currencies when creating auctions
+- **defaultCurrencySymbol**: Displayed when CoinsEngine is disabled or currency not found
+- **GUISettings.Currency**: Controls the currency selection interface
+
+---
+
+## 🎮 Usage
+
+When CoinsEngine support is enabled:
+
+1. **Creating Auctions**: Players can select which currency to use for their auction
+2. **Bidding**: Bids are placed using the selected currency
+3. **Currency Display**: Prices show the appropriate currency symbol and name
+4. **Multiple Currencies**: Auctions can use different currencies
+
+---
+
 ## 📸 Screenshots
 
 ![Auction Preview](assets/screenshots/currency.png)
 
 ---
+
+## 🔄 Migration from Vault
+
+- Set `CoinsEngineSupport.enable: false` to continue using Vault
+- When switching to CoinsEngine, existing auctions will use Vault
+
+---
+
+## 💰 Currency Display
+
+When CoinsEngine support is enabled:
+
+- **Icons/Symbols**: Currency icons and symbols are loaded directly from CoinsEngine's configuration
+- **Display Names**: Currency names (singular/plural) use the display names defined in CoinsEngine
+- **Fallback**: If a currency is not found in CoinsEngine, the plugin falls back to `defaultCurrencySymbol`
+
+The integration automatically pulls all visual elements (icons, names) from your CoinsEngine configurations.
+
+---
+
+## ❓ Troubleshooting
+
+**CoinsEngine currencies not showing?**
+- Verify CoinsEngine is installed and working
+- Check that currency IDs match in both configs
+- Ensure `CoinsEngineSupport.enable: true`
+
+**Currency symbols not displaying?**
+- CoinsEngine uses its own display names and colors
+- `defaultCurrencySymbol` is only used as fallback
+
+**Transactions failing?**
+- Ensure players have sufficient balance in the specific currency
+- Check CoinsEngine permissions
+
+```
+This completes the README with comprehensive configuration instructions for the new CoinsEngine functionality.
+```
 
 <center><div align="center">
 
