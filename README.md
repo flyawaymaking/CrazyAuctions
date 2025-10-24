@@ -69,8 +69,8 @@ When CoinsEngine support is enabled:
 
 ## 🔄 Migration from Vault
 
-- Set `CoinsEngineSupport.enable: false` to continue using Vault
 - When switching to CoinsEngine, existing auctions will use Vault
+- Set `CoinsEngineSupport.enable: false` to continue using Vault
 
 ---
 
