@@ -1,4 +1,4 @@
-# 🪙 CrazyAuctions — CoinsEngine Fork
+# 🪙 CrazyAuctions Fork — include CoinsEngine
 
 > ⚠️ **Fork Disclaimer**  
 > This is **not an official release** of the [CrazyAuctions](https://github.com/Crazy-Crew/CrazyAuctions) plugin.  
