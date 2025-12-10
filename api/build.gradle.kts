@@ -39,6 +39,12 @@ tasks {
     }
 }
 
+tasks.jar {
+    archiveBaseName.set("api")
+
+    archiveVersion.set("")
+}
+
 publishing {
     repositories {
         maven {
