@@ -1,3 +1,3 @@
 rootProject.name = "CrazyAuctions-Fork"
 
-include("publish" ,"paper")
+include("paper", "api")

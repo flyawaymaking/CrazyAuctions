@@ -129,18 +129,18 @@ public class GuiListener implements Listener {
 
         Inventory inv = new AuctionMenu(54, Methods.color(config.getString("Settings.Categories"))).getInventory();
 
-        List<String> options = new ArrayList<>(){{
-            add("OtherSettings.Back");
-            add("OtherSettings.WhatIsThis.Categories");
-            add("Category-Settings.Armor");
-            add("Category-Settings.Weapons");
-            add("Category-Settings.Tools");
-            add("Category-Settings.Food");
-            add("Category-Settings.Potions");
-            add("Category-Settings.Blocks");
-            add("Category-Settings.Other");
-            add("Category-Settings.None");
-        }};
+        List<String> options = new ArrayList<>();
+
+        options.add("OtherSettings.Back");
+        options.add("OtherSettings.WhatIsThis.Categories");
+        options.add("Category-Settings.Armor");
+        options.add("Category-Settings.Weapons");
+        options.add("Category-Settings.Tools");
+        options.add("Category-Settings.Food");
+        options.add("Category-Settings.Potions");
+        options.add("Category-Settings.Blocks");
+        options.add("Category-Settings.Other");
+        options.add("Category-Settings.None");
 
         setOptions(options, config, inv);
 
@@ -155,7 +155,7 @@ public class GuiListener implements Listener {
 
         List<ItemStack> items = new ArrayList<>();
         List<Integer> itemsId = new ArrayList<>();
-        
+
         for (ConfigurationSection itemSection : crazyManager.getPlayerItems(player.getUniqueId().toString())) {
             String price = crazyManager.getPriceWithCurrency(Methods.getPrice(itemSection), Methods.getCurrency(itemSection));
             String time = Methods.convertToTime(itemSection.getLong("Time-Till-Expire"));
@@ -338,7 +338,7 @@ public class GuiListener implements Listener {
         List<Integer> itemsId = new ArrayList<>();
 
         if (!Methods.isUUID(other)) other = String.valueOf(plugin.getServer().getPlayerUniqueId(other));
-        
+
         for (ConfigurationSection itemSection : crazyManager.getPlayerItems(other)) {
             items.add(buildAuctionDisplay(itemSection));
             itemsId.add(itemSection.getInt("StoreID"));
@@ -641,16 +641,16 @@ public class GuiListener implements Listener {
                     return;
                 }
 
-                Map<String, Integer> priceEdits = new HashMap<>(){{
-                    put("&a+1", 1);
-                    put("&a+10", 10);
-                    put("&a+100", 100);
-                    put("&a+1000", 1000);
-                    put("&c-1", -1);
-                    put("&c-10", -10);
-                    put("&c-100", -100);
-                    put("&c-1000", -1000);
-                }};
+                Map<String, Integer> priceEdits = new HashMap<>();
+
+                priceEdits.put("&a+1", 1);
+                priceEdits.put("&a+10", 10);
+                priceEdits.put("&a+100", 100);
+                priceEdits.put("&a+1000", 1000);
+                priceEdits.put("&c-1", -1);
+                priceEdits.put("&c-10", -10);
+                priceEdits.put("&c-100", -100);
+                priceEdits.put("&c-1000", -1000);
 
                 for (String price : priceEdits.keySet()) {
                     if (displayName.equals(Methods.color(price))) {
