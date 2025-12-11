@@ -6,7 +6,7 @@
 > to enable in-game currency integration.  
 > All credits for the original code and design go to the **CrazyCrew** developers.
 
-> ✅ Tested on **Minecraft 1.21.8 (Paper)**.  
+> ✅ Tested on **Minecraft 1.21.10 (Paper)**.  
 > Compatibility with other versions is **not guaranteed**.
 
 ---

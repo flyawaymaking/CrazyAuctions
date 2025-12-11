@@ -1,7 +1,10 @@
 name: '${name}'
 main: '${group}.CrazyAuctions'
 
-authors: ${authors}
+authors:
+  - ryderbelserion
+  - BadBones69
+  - golovin12
 
 version: '${version}'
 api-version: '${apiVersion}'

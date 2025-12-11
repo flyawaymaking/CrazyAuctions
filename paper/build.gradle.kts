@@ -65,9 +65,8 @@ tasks {
         inputs.properties("version" to project.version)
         inputs.properties("group" to project.group)
         inputs.properties("apiVersion" to libs.versions.minecraft.get())
-        inputs.properties("description" to project.properties["description"])
-        inputs.properties("authors" to project.properties["authors"])
-        inputs.properties("website" to project.properties["website"])
+        inputs.properties("description" to rootProject.property("description").toString())
+        inputs.properties("website" to rootProject.property("website").toString())
 
         filesMatching("plugin.yml") {
             expand(inputs.properties)
